@@ -6,7 +6,11 @@ class Persons extends Component {
     render() {
         return (
             <Fragment>
-                <Person />
+                <Person name="Rahim" email="rahim@email.com" phone="123-444-555" />
+                <Person name="Karim" email="karim@email.com" phone="123-444-555" />
+                <Person name="Rahat" email="Rahat@email.com" phone="123-444-555" />
+                <Person name="Jamal" email="Jamal@email.com" phone="123-444-555" />
+                <Person  />
             </Fragment>
         )
     }
