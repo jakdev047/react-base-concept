@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import CountBtn from '../components/CountBtn';
 
 class Count extends Component {
 
@@ -6,15 +7,15 @@ class Count extends Component {
         count: 0
     }
 
-    increment () {
+    increment = (stepping) => {
         this.setState({
-            count:this.state.count +1
+            count:this.state.count + stepping
         });
     }
 
-    decrement () {
+    decrement = (stepping) => {
         this.setState({
-            count:this.state.count - 1
+            count:this.state.count - stepping
         });
     }
 
@@ -23,8 +24,7 @@ class Count extends Component {
             <Fragment>
                 <div>
                     <h2>Count {this.state.count}</h2>
-                    <button type="button" onClick={()=>this.increment()}> Increment </button> | 
-                    <button type="button" onClick={()=>this.decrement()}> Decrement </button> 
+                    <CountBtn increment={this.increment} decrement={this.decrement} />
                 </div>
             </Fragment>
         )
