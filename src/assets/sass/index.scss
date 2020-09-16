@@ -1,0 +1,22 @@
+/*==================================
+* Author        : "Jubayer Alam Khan"
+* Template Name : React Base Foundation
+* Version       : 1.0
+==================================== */
+
+/*=======================================
+font-family: 'Montserrat', sans-serif;
+=========================================*/
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// general sass
+@import "./component-styles/variable";
+@import "./component-styles/general";
+
+
+h2{
+    color: $secondaryColor;
+    text-align: center;
+}
