@@ -1,12 +1,13 @@
 import React, {  } from 'react';
 import PropTypes from 'prop-types';
 
-const Person = ({name,email,phone}) => {
+const Person = ({name,email,phone,children}) => {
     return (
         <div>
             <h2>{name}</h2>
             <p>{email}</p>
             <p>{phone}</p>
+            <p>{children}</p>
         </div>
     );
 };

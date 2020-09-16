@@ -10,7 +10,7 @@ class Persons extends Component {
                 <Person name="Karim" email="karim@email.com" phone="123-444-555" />
                 <Person name="Rahat" email="Rahat@email.com" phone="123-444-555" />
                 <Person name="Jamal" email="Jamal@email.com" phone="123-444-555" />
-                <Person  />
+                <Person> Person Children </Person>
             </Fragment>
         )
     }
