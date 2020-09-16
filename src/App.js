@@ -4,13 +4,15 @@ import React from 'react';
 import './assets/sass/index.scss';
 
 // pages
-import Persons from './pages/Persons';
+// import Persons from './pages/Persons';
+import Students from './pages/Students';
 
 function App() {
   return (
     <div className="App">
       <h2>Hello React World!</h2>
-      <Persons />
+      {/* <Persons /> */}
+      <Students />
     </div>
   );
 }
