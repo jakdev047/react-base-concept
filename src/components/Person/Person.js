@@ -25,7 +25,8 @@ const Person = (props) => {
             <h2>{name}</h2>
             <p>{email}</p>
             <p>{phone}</p>
-            <button style={ButonStyle} onClick={()=>props.delete(id)}>Delete</button>
+            <button style={ButonStyle} onClick={()=>props.delete(id)}>Delete</button> <br/>
+            <input type="text" value={name} onChange={props.changeHandler}/>
             <p>{props.children}</p>
         </div>
     );

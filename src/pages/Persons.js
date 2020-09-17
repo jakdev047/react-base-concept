@@ -20,12 +20,24 @@ class Persons extends Component {
         });
     }
 
+    changeHandler = (e,index) => {
+        const person = {...this.state.persons[index]};
+        person.name = e.target.value;
+
+        const persons = [...this.state.persons];
+        persons[index] = person;
+        this.setState({
+            persons
+        })
+        console.log(person.name)
+    }
+
     render() {
         const {persons} = this.state;
         return (
             <div>
                 {
-                    persons.map( person => <Person key={person.id} person={person} delete={this.deleteBookItem} />)
+                    persons.map( (person,index) => <Person key={person.id} person={person} delete={this.deleteBookItem} changeHandler={(e)=>this.changeHandler(e,index)} />)
                 }
             </div>
     )
