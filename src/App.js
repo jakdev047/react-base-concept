@@ -6,15 +6,17 @@ import './assets/sass/index.scss';
 // pages
 // import Persons from './pages/Persons';
 // import Students from './pages/Students';
-import Count from './pages/Count';
+// import Count from './pages/Count';
+import BasicForm from './pages/BasicForm';
 
 function App() {
   return (
     <div className="App">
-      <h2>Hello React World!</h2>
+      <h2>React Foundation</h2>
       {/* <Persons /> */}
       {/* <Students /> */}
-      <Count />
+      {/* <Count /> */}
+      <BasicForm />
     </div>
   );
 }
