@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 
 import Student from '../components/Student/Student';
+import TopNavigation from '../components/TopNavigation/TopNavigation';
+
 
 class Students extends Component {
     state = {
@@ -15,6 +17,7 @@ class Students extends Component {
         const {students} = this.state;
         return (
             <Fragment>
+                <TopNavigation title="Students" />
                 <div>
                     {
                         students.map( student => <Student key={student.id} student={student} />)

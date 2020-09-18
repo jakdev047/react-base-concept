@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Person from '../components/Person/Person';
+import TopNavigation from '../components/TopNavigation/TopNavigation';
 
 class Persons extends Component {
 
@@ -32,28 +33,13 @@ class Persons extends Component {
         console.log(person.name)
     }
 
-    UNSAFE_componentWillReceiveProps(nextProps) {
-        console.log("Person componentWillReceiveProps: ",nextProps)
-    }
-
-    shouldComponentUpdate(nextProps,nextState) {
-        console.log("Person shouldComponentUpdate: ",nextProps,nextState);
-        return false;
-    }
-
-    UNSAFE_componentWillUpdate(nextProps,nextState){
-        console.log("Person componentWillUpdate: ",nextProps,nextState);
-    }
-
-    componentDidUpdate() {
-        console.log("Person componentDidUpdate");
-    }
-
     render() {
-        console.log('Person Component Render...');
         const {persons} = this.state;
         return (
             <div>
+                <div>
+                    <TopNavigation title="Persons" />
+                </div>
                 {
                     persons.map( (person,index) => <Person key={person.id} person={person} delete={this.deleteBookItem} changeHandler={(e)=>this.changeHandler(e,index)} />)
                 }
