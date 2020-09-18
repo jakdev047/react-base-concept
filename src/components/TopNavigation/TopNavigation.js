@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 class TopNavigation extends Component {
     state = {
@@ -9,13 +9,15 @@ class TopNavigation extends Component {
         return (
             <Fragment>
                 <title>{this.state.pageTitle}</title>
-                <ul className="menu">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/count">Count</Link></li>
-                    <li><Link to="/persons">Persons</Link></li>
-                    <li><Link to="/students">Students</Link></li>
-                    <li><Link to="/basic-forms">Basic Form</Link></li>
-                </ul>
+                <nav className="navbar">
+                    <ul className="menu">
+                        <li><NavLink exact to="/">Home</NavLink></li>
+                        <li><NavLink exact to="/count">Count</NavLink></li>
+                        <li><NavLink exact to="/persons">Persons</NavLink></li>
+                        <li><NavLink exact to="/students">Students</NavLink></li>
+                        <li><NavLink exact to="/basic-forms">Basic Form</NavLink></li>
+                    </ul>
+                </nav>
             </Fragment>
         )
     }

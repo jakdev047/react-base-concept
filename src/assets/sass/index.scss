@@ -33,3 +33,7 @@ ul.menu li {
     display: inline-block;
     padding: 20px;
 }
+
+.navbar a.active {
+    color: $secondaryColor;
+}
