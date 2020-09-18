@@ -8,6 +8,7 @@ import Persons from '../pages/Persons';
 import Students from '../pages/Students';
 import NotFound from '../pages/NotFound';
 import BasicForm from '../pages/BasicForm';
+// import SinglePerson from '../pages/SinglePerson';
 
 class AppRoute extends Component {
 
@@ -22,6 +23,7 @@ class AppRoute extends Component {
           <Route exact path='/persons' component={Persons}/>
           <Route exact path='/students' component={Students}/>
           <Route exact path='/basic-forms' component={BasicForm}/>
+          {/* <Route exact path='/single-person/:personId/:personName' component={SinglePerson}/> */}
           <Route path='*' component={NotFound}/>
 
         </Switch>
