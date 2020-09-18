@@ -1,4 +1,4 @@
-import React, {  } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const PersonStyle= {
@@ -18,18 +18,21 @@ const ButonStyle= {
     cursor: 'pointer'
 }
 
-const Person = (props) => {
-    const {name,email,phone,id} = props.person;
-    return (
-        <div style={PersonStyle}>
-            <h2>{name}</h2>
-            <p>{email}</p>
-            <p>{phone}</p>
-            <button style={ButonStyle} onClick={()=>props.delete(id)}>Delete</button> <br/>
-            <input type="text" value={name} onChange={props.changeHandler}/>
-            <p>{props.children}</p>
-        </div>
-    );
+class Person extends Component {
+    render() {
+        console.log("Person render...");
+        const {name,email,phone,id} = this.props.person;
+        return (
+            <div style={PersonStyle}>
+                <h2>{name}</h2>
+                <p>{email}</p>
+                <p>{phone}</p>
+                <button style={ButonStyle} onClick={()=>this.props.delete(id)}>Delete</button> <br/>
+                <input type="text" value={name} onChange={this.props.changeHandler}/>
+                <p>{this.props.children}</p>
+            </div>
+        );
+    }
 };
 
 Person.defaultProps = {
