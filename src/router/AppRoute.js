@@ -17,7 +17,7 @@ class AppRoute extends Component {
 
         <Switch>
 
-          <Route exact path='/' component={Home}/>
+          <Route exact path='/' render={()=> <Home/>}/>
           <Route exact path='/count' component={Count}/>
           <Route exact path='/persons' component={Persons}/>
           <Route exact path='/students' component={Students}/>

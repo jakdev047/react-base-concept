@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from 'react';
+import { withRouter } from 'react-router-dom';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
 
 
 class Home extends Component {
     render() {
+        console.log(this.props)
         return (
             <Fragment>
                 <TopNavigation title="Home" />
@@ -13,4 +15,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default withRouter(Home);
