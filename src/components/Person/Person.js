@@ -27,8 +27,8 @@ class Person extends Component {
                 <h2>{name}</h2>
                 <p>{email}</p>
                 <p>{phone}</p>
-                {/* <Link to={`/single-person/${id}/${name}`} style={ButonStyle} >Details</Link> <br/> */}
-                <button style={ButonStyle} onClick={()=>this.props.onSelectedPerson(this.props.person)}>Details</button> <br/>
+                <Link to={`/single-person/${id}/${name}`} style={ButonStyle} >Details</Link> <br/>
+                {/* <button style={ButonStyle} onClick={()=>this.props.onSelectedPerson(this.props.person)}>Details</button> <br/> */}
                 <button style={ButonStyle} onClick={()=>this.props.delete(id)}>Delete</button> <br/>
                 <input type="text" value={name} onChange={this.props.changeHandler}/>
                 <p>{this.props.children}</p>

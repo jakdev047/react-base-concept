@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
-// import TopNavigation from '../components/TopNavigation/TopNavigation';
+import TopNavigation from '../components/TopNavigation/TopNavigation';
+import { persons } from '../data/persons';
 
 const PersonStyle= {
     display: 'block',
@@ -11,17 +12,16 @@ const PersonStyle= {
     background: '#eee'
 }
 
-const SinglePerson = ({person}) => {
-    // console.log(props,props.match.params);
-    if( person == null) return <div></div>
+const SinglePerson = props => {
+    const person= persons.filter(person=> person.id == props.match.params.personId);
+    const {name,email,phone} = person[0];
     return (
         <Fragment>
-            {/* <TopNavigation title="Persons" /> */}
-            {/* <h2>{props.match.params.personName}</h2> */}
+            <TopNavigation title="Persons" />
             <div style={PersonStyle}>
-                <h2>{person.name}</h2>
-                <p>{person.email}</p>
-                <p>{person.phone}</p>
+                <h2>{name}</h2>
+                <p>{email}</p>
+                <p>{phone}</p>
             </div>
         </Fragment>
     );

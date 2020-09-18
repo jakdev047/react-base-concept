@@ -12,8 +12,7 @@ class Persons extends Component {
             {id:2, name:"Karim", email:"karim@email.com", phone:"123-444-555"},
             {id:3, name:"Rahat", email:"Rahat@email.com", phone:"123-444-555"},
             {id:4, name:"Jamal", email:"Jamal@email.com", phone:"123-444-555"}
-        ],
-        seletedPerson: null
+        ]
     }
 
     deleteBookItem = (id) => {
@@ -35,12 +34,6 @@ class Persons extends Component {
         console.log(person.name)
     }
 
-    onSelectedPerson = person => {
-        this.setState({
-            seletedPerson: person
-        })
-    }
-
     render() {
         const {persons} = this.state;
         return (
@@ -48,12 +41,8 @@ class Persons extends Component {
                 <div>
                     <TopNavigation title="Persons" />
                 </div>
-                
-                <div>
-                    <SinglePerson person={this.state.seletedPerson}/>
-                </div>
                 {
-                    persons.map( (person,index) => <Person key={person.id} person={person} delete={this.deleteBookItem} changeHandler={(e)=>this.changeHandler(e,index)} onSelectedPerson={this.onSelectedPerson} />)
+                    persons.map( (person,index) => <Person key={person.id} person={person} delete={this.deleteBookItem} changeHandler={(e)=>this.changeHandler(e,index)} />)
                 }
             </div>
     )
