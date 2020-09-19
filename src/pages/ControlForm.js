@@ -13,6 +13,7 @@ class ControlForm extends Component {
             birthday: '',
             country: '',
             gender: '',
+            skills:[],
             agree: false,
             errorsValues: {}
         };
@@ -22,6 +23,20 @@ class ControlForm extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
+    }
+
+    handleSkills = e => {
+        if(e.target.checked) {
+            this.setState({
+                skills: [...this.state.skills, e.target.value]
+            });
+        }
+        else {
+            const newSkill = this.state.skills.filter(skill=> skill !== e.target.value);
+            this.setState({
+                skills: newSkill
+            });
+        }
     }
 
      // validate
@@ -57,6 +72,7 @@ class ControlForm extends Component {
                 birthday: this.state.birthday,
                 country: this.state.country,
                 gender: this.state.gender,
+                skills: this.state.skills,
                 agree: this.state.agree
             };
 
@@ -67,6 +83,7 @@ class ControlForm extends Component {
                 birthday: '',
                 country: '',
                 gender: '',
+                skills:[],
                 agree: false,
                 errorsValues: {}
             });
@@ -136,9 +153,26 @@ class ControlForm extends Component {
                                     }
                                 </div>
 
-                                <CheckkboxForm name="agree" checked={this.state.agree} onChange={this.changeHandler}>
+                                <div className="form-group text-left">
+                                    <h5>Skills</h5>
+
+                                    <input className="form-check-input" type="checkbox" name="skills" value='HTML5' checked={this.state.skills.includes('HTML5')} 
+                                    onChange={(e) => this.handleSkills(e)}/>  HTML5   <br/>
+                                    <input className="form-check-input" type="checkbox" name="skills" value='CSS3' checked={this.state.skills.includes('CSS3')} 
+                                    onChange={(e) => this.handleSkills(e)} /> CSS3  <br/>
+                                    <input className="form-check-input" type="checkbox" name="skills" value='JS' checked={this.state.skills.includes('JS')} 
+                                    onChange={(e) => this.handleSkills(e)} /> JS   <br/>
+                                    <input className="form-check-input" type="checkbox" name="skills" value='React' checked={this.state.skills.includes('React')} 
+                                    onChange={(e) => this.handleSkills(e)} /> React <br/>
+                                </div>
+
+                                <div className="form-group">
+                                    <input className="form-check-input" type="checkbox" name="agree"  checked={this.state.agree} onChange={this.changeHandler} /> I agree to all terms & condition
+                                </div>
+
+                                {/* <CheckkboxForm name="agree" checked={this.state.agree} onChange={this.changeHandler}>
                                     I agree to all terms & condition
-                                </CheckkboxForm>
+                                </CheckkboxForm> */}
 
                                 <div className="form-group">
                                     <button type="submit" className="btn btn-success" disabled={!this.state.agree}>Submit</button>

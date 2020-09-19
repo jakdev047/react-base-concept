@@ -14,7 +14,7 @@ const CheckkboxForm = props => {
 CheckkboxForm.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  value: PropTypes.bool,
+  // value: PropTypes.bool,
   onChange: PropTypes.func.isRequired
 }
 
