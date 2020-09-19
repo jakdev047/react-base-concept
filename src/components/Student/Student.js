@@ -16,8 +16,8 @@ class Student extends Component {
     }
 };
 
-// Student.propTypes = {
-//     student: PropTypes.object.isRequired,
-// };
+Student.propTypes = {
+    student: PropTypes.object.isRequired,
+};
 
 export default Student;

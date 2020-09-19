@@ -1,5 +1,5 @@
 import React, { Component,Fragment } from 'react';
-import { Switch,Route} from "react-router-dom";
+import { Switch,Route, Redirect} from "react-router-dom";
 
 // pages
 import Home from '../pages/Home';
@@ -24,6 +24,7 @@ class AppRoute extends Component {
           <Route exact path='/students' component={Students}/>
           <Route exact path='/basic-forms' component={BasicForm}/>
           <Route exact path='/single-person/:personId/:personName' component={SinglePerson}/>
+          <Redirect from="/" to="/count" />
           <Route path='*' component={NotFound}/>
 
         </Switch>

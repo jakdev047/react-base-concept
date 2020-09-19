@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Person from '../components/Person/Person';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
-import SinglePerson from './SinglePerson';
 
 class Persons extends Component {
 
