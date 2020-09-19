@@ -4,6 +4,7 @@ import React from 'react';
 import { BrowserRouter } from "react-router-dom";
 
 // sass
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/sass/index.scss';
 
 // route

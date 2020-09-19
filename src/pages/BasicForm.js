@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
 
 class BasicForm extends Component {
@@ -18,9 +19,16 @@ class BasicForm extends Component {
             <Fragment>
                 <div>
                     <TopNavigation title="Forms" />
-                    <h2> Basic Form</h2>
-                    <input type="text" name="name" onChange={this.changeHandler}/>
-                    <h4> Name: {this.state.name}</h4>
+                    <div className="container">
+                        <h2> Basic Form</h2>
+                        <input type="text" name="name" onChange={this.changeHandler}/>
+                        <h4> Name: {this.state.name}</h4>
+                        <h3>There are two types form work</h3>
+                        <ul className="menu">
+                            <li><Link to='/uncontrol-form'>Uncontrole Form</Link></li>
+                            <li><Link to='/control-form'>Controle Form</Link></li>
+                        </ul>
+                    </div>
                 </div>
             </Fragment>
         )

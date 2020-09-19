@@ -9,15 +9,17 @@ class TopNavigation extends Component {
         return (
             <Fragment>
                 <title>{this.state.pageTitle}</title>
-                <nav className="navbar">
-                    <ul className="menu">
-                        <li><NavLink exact to="/">Home</NavLink></li>
-                        <li><NavLink exact to="/count">Count</NavLink></li>
-                        <li><NavLink exact to="/persons">Persons</NavLink></li>
-                        <li><NavLink exact to="/students">Students</NavLink></li>
-                        <li><NavLink exact to="/basic-forms">Basic Form</NavLink></li>
-                    </ul>
-                </nav>
+                <div className="container">
+                    <nav className="navbar justify-content-center">
+                        <ul className="menu">
+                            <li><NavLink exact to="/">Home</NavLink></li>
+                            <li><NavLink exact to="/count">Count</NavLink></li>
+                            <li><NavLink exact to="/persons">Persons</NavLink></li>
+                            <li><NavLink exact to="/students">Students</NavLink></li>
+                            <li><NavLink exact to="/forms">Form</NavLink></li>
+                        </ul>
+                    </nav>
+                </div>
             </Fragment>
         )
     }
