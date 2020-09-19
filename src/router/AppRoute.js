@@ -10,6 +10,7 @@ import NotFound from '../pages/NotFound';
 import BasicForm from '../pages/BasicForm';
 import SinglePerson from '../pages/SinglePerson';
 import Uncontrol from '../pages/Uncontrol';
+import ControlForm from '../pages/ControlForm';
 
 class AppRoute extends Component {
 
@@ -26,6 +27,7 @@ class AppRoute extends Component {
           <Route exact path='/forms' component={BasicForm}/>
           <Route exact path='/single-person/:personId/:personName' component={SinglePerson}/>
           <Route exact path='/uncontrol-form' component={Uncontrol}/>
+          <Route exact path='/control-form' component={ControlForm}/>
           <Redirect from="/" to="/count" />
           <Route path='*' component={NotFound}/>
 

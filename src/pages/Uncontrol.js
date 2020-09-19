@@ -16,7 +16,7 @@ class Uncontrol extends Component {
         let email = this.email.current.value;
         let phone = this.phone.current.value;
 
-        if( name == ' ' & email == ' ' & phone == ' ' ) {
+        if( name === '' & email === '' & phone === '' ) {
             alert('Please Enter form fillup');
         }
         else {
