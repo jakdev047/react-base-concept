@@ -9,6 +9,8 @@ class ControlForm extends Component {
         super();
         this.state = {
             name: '',
+            birthday: '',
+            country: '',
             agree: false,
             errorsValues: {}
         };
@@ -26,6 +28,12 @@ class ControlForm extends Component {
         if(!this.state.name) {
             errors.name = 'Please Provide Your Name'
         }
+        if(!this.state.birthday) {
+            errors.birthday = 'Please Provide Your Birthday'
+        }
+        if(!this.state.country) {
+            errors.country = 'Please Provide Your Country'
+        }
         return {
             errors,
             isValid:Object.keys(errors).length === 0 // return a array of errors that means ['name','email','password','birthday,'gender']
@@ -41,6 +49,8 @@ class ControlForm extends Component {
             // data capture
             const newData = {
                 name: this.state.name,
+                birthday: this.state.birthday,
+                country: this.state.country,
                 agree: this.state.agree
             };
 
@@ -48,6 +58,8 @@ class ControlForm extends Component {
             // reset
             this.setState({
                 name: '',
+                birthday: '',
+                country: '',
                 agree: false,
                 errorsValues: {}
             });
@@ -78,6 +90,36 @@ class ControlForm extends Component {
                                     onChange={this.changeHandler} 
                                     error={this.state.errorsValues.name}
                                 />
+
+                                <TextInput 
+                                    label="date *" 
+                                    className="form-control" 
+                                    type="date" 
+                                    id="birthday" 
+                                    name="birthday" 
+                                    value={this.state.birthday} 
+                                    onChange={this.changeHandler}  
+                                    error={this.state.errorsValues.birthday}
+                                />
+
+                                <div className="form-group">
+                                    <select 
+                                        className={this.state.errorsValues.country ? 'form-control is-invalid' : 'form-control'} 
+                                        name="country" 
+                                        value={this.state.country} 
+                                        onChange={this.changeHandler}
+                                    >
+                                        <option >Select Country</option>
+                                        <option value="Ban">Bnagladesh</option>
+                                        <option value="Bhu">Bhutan</option>
+                                        <option value="In">India</option>
+                                        <option value="Mal">Maldhives</option>
+                                        <option value="Nep">Nepal</option>
+                                        <option value="Pak">Pakistan</option>
+                                        <option value="Sri">Srilanka</option>
+                                    </select>
+                                    {this.state.errorsValues.country && <div className="invalid-feedback">{this.state.errorsValues.country}</div>}
+                                </div>
 
                                 <CheckkboxForm name="agree" checked={this.state.agree} onChange={this.changeHandler}>
                                     I agree to all terms & condition
