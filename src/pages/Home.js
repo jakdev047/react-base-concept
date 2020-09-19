@@ -5,7 +5,6 @@ import TopNavigation from '../components/TopNavigation/TopNavigation';
 
 class Home extends Component {
     render() {
-        console.log(this.props)
         return (
             <Fragment>
                 <TopNavigation title="Home" />

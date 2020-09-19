@@ -1,5 +1,4 @@
-import React, { Component, createRef, Fragment } from 'react';
-import CheckkboxForm from '../components/CheckkboxForm/CheckkboxForm';
+import React, { Component, Fragment } from 'react';
 import RadioBoxForm from '../components/RadioBoxForm/RadioBoxForm';
 import TextInput from '../components/TextInput/TextInput';
 import TopNavigation from '../components/TopNavigation/TopNavigation';

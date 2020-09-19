@@ -13,6 +13,7 @@ class TopNavigation extends Component {
                     <nav className="navbar justify-content-center">
                         <ul className="menu">
                             <li><NavLink exact to="/">Home</NavLink></li>
+                            <li><NavLink exact to="/users">Users</NavLink></li>
                             <li><NavLink exact to="/count">Count</NavLink></li>
                             <li><NavLink exact to="/persons">Persons</NavLink></li>
                             <li><NavLink exact to="/students">Students</NavLink></li>

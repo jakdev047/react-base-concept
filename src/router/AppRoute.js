@@ -11,6 +11,7 @@ import BasicForm from '../pages/BasicForm';
 import SinglePerson from '../pages/SinglePerson';
 import Uncontrol from '../pages/Uncontrol';
 import ControlForm from '../pages/ControlForm';
+import Users from '../pages/Users';
 
 class AppRoute extends Component {
 
@@ -22,6 +23,7 @@ class AppRoute extends Component {
 
           <Route exact path='/' render={()=> <Home/>}/>
           <Route exact path='/count' component={Count}/>
+          <Route exact path='/users' component={Users}/>
           <Route exact path='/persons' component={Persons}/>
           <Route exact path='/students' component={Students}/>
           <Route exact path='/forms' component={BasicForm}/>
