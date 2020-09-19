@@ -1,4 +1,5 @@
 import React, { Component, createRef, Fragment } from 'react';
+import CheckkboxForm from '../components/CheckkboxForm/CheckkboxForm';
 import TextInput from '../components/TextInput/TextInput';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
 
@@ -39,7 +40,8 @@ class ControlForm extends Component {
         if(isValid) {
             // data capture
             const newData = {
-                name: this.state.name
+                name: this.state.name,
+                agree: this.state.agree
             };
 
             console.log(newData);
@@ -76,8 +78,13 @@ class ControlForm extends Component {
                                     onChange={this.changeHandler} 
                                     error={this.state.errorsValues.name}
                                 />
+
+                                <CheckkboxForm name="agree" checked={this.state.agree} onChange={this.changeHandler}>
+                                    I agree to all terms & condition
+                                </CheckkboxForm>
+
                                 <div className="form-group">
-                                    <button type="submit" className="btn btn-success" disabled={this.state.agree}>Submit</button>
+                                    <button type="submit" className="btn btn-success" disabled={!this.state.agree}>Submit</button>
                                 </div>
                             </div>
                         </div>
