@@ -1,5 +1,6 @@
 import React, { Component, createRef, Fragment } from 'react';
 import CheckkboxForm from '../components/CheckkboxForm/CheckkboxForm';
+import RadioBoxForm from '../components/RadioBoxForm/RadioBoxForm';
 import TextInput from '../components/TextInput/TextInput';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
 
@@ -11,6 +12,7 @@ class ControlForm extends Component {
             name: '',
             birthday: '',
             country: '',
+            gender: '',
             agree: false,
             errorsValues: {}
         };
@@ -34,6 +36,9 @@ class ControlForm extends Component {
         if(!this.state.country) {
             errors.country = 'Please Provide Your Country'
         }
+        if(!this.state.gender) {
+            errors.gender = 'Please Provide Your Gender'
+        }
         return {
             errors,
             isValid:Object.keys(errors).length === 0 // return a array of errors that means ['name','email','password','birthday,'gender']
@@ -51,6 +56,7 @@ class ControlForm extends Component {
                 name: this.state.name,
                 birthday: this.state.birthday,
                 country: this.state.country,
+                gender: this.state.gender,
                 agree: this.state.agree
             };
 
@@ -60,6 +66,7 @@ class ControlForm extends Component {
                 name: '',
                 birthday: '',
                 country: '',
+                gender: '',
                 agree: false,
                 errorsValues: {}
             });
@@ -119,6 +126,14 @@ class ControlForm extends Component {
                                         <option value="Sri">Srilanka</option>
                                     </select>
                                     {this.state.errorsValues.country && <div className="invalid-feedback">{this.state.errorsValues.country}</div>}
+                                </div>
+
+                                <div>
+                                    <RadioBoxForm name="gender" value="Male" onChange={this.changeHandler}>Male</RadioBoxForm>
+                                    <RadioBoxForm name="gender" value="Female" onChange={this.changeHandler}>Female</RadioBoxForm>
+                                    { 
+                                        this.state.errorsValues.gender && <div className="invalid-feedback" style={{display:'block'}}>{this.state.errorsValues.gender}</div>
+                                    }
                                 </div>
 
                                 <CheckkboxForm name="agree" checked={this.state.agree} onChange={this.changeHandler}>
