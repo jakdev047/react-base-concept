@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const PersonStyle= {
@@ -20,17 +21,18 @@ const ButonStyle= {
 
 class User extends Component {
     render() {
-        const {name,email,address} = this.props.user;
+        const {name,email,address,id} = this.props.user;
         return (
             <div style={PersonStyle}>
                 <h2>{name}</h2>
                 <p>{email}</p>
                 <p>{address.street}, {address.suite}, {address.city}</p>
                 <Link to={`/`} style={ButonStyle} >Details</Link> <br/>
-                <button style={ButonStyle}>Delete</button> <br/>
+                <button style={ButonStyle} onClick={()=>this.props.deleteUser(id)}>Delete</button> <br/>
             </div>
         );
     }
 };
 
+// export default connect(null,{deleteUser})(User);
 export default User;

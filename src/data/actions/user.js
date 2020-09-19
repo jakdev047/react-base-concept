@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS } from './types';
+import { DELETE_USER_REQUEST, FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS } from './types';
 
 // loadUsers
 export const fetchUsersRequest = () => {
@@ -37,3 +37,19 @@ export const fetchUsers = () => {
         })
     }
 }
+
+// delete user
+export const deleteUser = id => dispatch => {
+    return axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+                .then(response=>{
+                    dispatch({
+                        type: DELETE_USER_REQUEST,
+                        payload: id
+                    })
+                })
+                .catch(error=>{
+                    // const errorMsg = error.message;
+                    // dispatch(fetchUsersFailure(errorMsg));
+                    console.log(error)
+                });
+};

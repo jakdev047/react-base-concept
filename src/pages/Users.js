@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
 import User from '../components/User/User';
-import { fetchUsers } from '../data/actions/user';
+import { fetchUsers,deleteUser } from '../data/actions/user';
 
 class Users extends Component {
 
@@ -19,7 +19,7 @@ class Users extends Component {
                     {
                         this.props.usersData.loading ? (<h2>Loading</h2>) : (
                             this.props.usersData.error ? (<h2>{this.props.usersData.error}</h2>) :
-                            this.props.usersData.users.map(user=> <User key={user.id} user={user} /> )
+                            this.props.usersData.users.map(user=> <User key={user.id} user={user} deleteUser={this.props.deleteUser} /> )
                         )
                     }
                 </div>
@@ -28,11 +28,6 @@ class Users extends Component {
     }
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchUsers: () => dispatch(fetchUsers())
-    }
-};
 
 const mapStateToProps = state => {
     return {
@@ -40,4 +35,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default  connect(mapStateToProps,mapDispatchToProps)(Users);
+export default  connect(mapStateToProps,{fetchUsers,deleteUser})(Users);
