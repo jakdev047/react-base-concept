@@ -48,8 +48,8 @@ export const deleteUser = id => dispatch => {
                     })
                 })
                 .catch(error=>{
-                    // const errorMsg = error.message;
-                    // dispatch(fetchUsersFailure(errorMsg));
+                    const errorMsg = error.message;
+                    dispatch(fetchUsersFailure(errorMsg));
                     console.log(error)
                 });
 };
