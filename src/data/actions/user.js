@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DELETE_USER_REQUEST, FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS } from './types';
+import { ADD_USER_REQUEST, DELETE_USER_REQUEST, FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS } from './types';
 
 // loadUsers
 export const fetchUsersRequest = () => {
@@ -46,6 +46,22 @@ export const deleteUser = id => dispatch => {
                         type: DELETE_USER_REQUEST,
                         payload: id
                     })
+                })
+                .catch(error=>{
+                    const errorMsg = error.message;
+                    dispatch(fetchUsersFailure(errorMsg));
+                    console.log(error)
+                });
+};
+
+// add user
+export const addUserRequest = user => dispatch => {
+    return axios.post(`https://jsonplaceholder.typicode.com/users`,user)
+                .then(response=>{
+                    dispatch({
+                        type: ADD_USER_REQUEST,
+                        payload: user
+                    });
                 })
                 .catch(error=>{
                     const errorMsg = error.message;

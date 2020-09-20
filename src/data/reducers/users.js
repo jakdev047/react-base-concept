@@ -1,4 +1,4 @@
-import { DELETE_USER_REQUEST, FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS } from "../actions/types";
+import { ADD_USER_REQUEST, DELETE_USER_REQUEST, FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS } from "../actions/types";
 
 const initialState = {
     users: [],
@@ -37,6 +37,13 @@ const reducers = (state=initialState,action) => {
                 loading: false
             }
         }
+
+        case ADD_USER_REQUEST:
+            return {
+                ...state,
+                users: [action.payload,...state.users],
+                loading: false
+            };
 
         default:
             return state;

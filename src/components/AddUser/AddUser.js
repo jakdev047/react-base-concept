@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import Modal from 'react-modal';
+import { connect } from 'react-redux';
 import TextInput from '../TextInput/TextInput';
+import { addUserRequest } from '../../data/actions/user';
 
 const customStyles = {
     content : {
@@ -55,6 +57,7 @@ class AddUser extends Component {
         if(isValid) {
             // data capture
             const newData = {
+                id: new Date().getTime().toString(),
                 name: this.state.name,
                 email: this.state.email,
                 address: {
@@ -63,8 +66,8 @@ class AddUser extends Component {
                     city: this.state.city,
                 }
             };
-
-            console.log(newData);
+            this.props.addUserRequest(newData);
+            this.props.close();
             // reset
             this.setState({
                 name: '',
@@ -139,4 +142,4 @@ class AddUser extends Component {
     }
 };
 
-export default AddUser;
+export default connect(null,{addUserRequest})(AddUser);
