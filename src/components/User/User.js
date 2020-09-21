@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {} from '../../data/actions/user';
+import UpdateUser from '../UpdateUser/UpdateUser';
 
 const PersonStyle= {
     display: 'block',
@@ -20,6 +21,24 @@ const ButonStyle= {
 }
 
 class User extends Component {
+
+    state = {
+        updateModalOpen: false
+    }
+
+    // for update modal
+    openUpdateModal = () => {
+        this.setState({
+            updateModalOpen: true
+        })
+    };
+
+    closeUpdateModal = () => {
+        this.setState({
+            updateModalOpen: false
+        })
+    };
+
     render() {
         const {name,email,address,id} = this.props.user;
         return (
@@ -27,12 +46,14 @@ class User extends Component {
                 <h2>{name}</h2>
                 <p>{email}</p>
                 <p>{address.street}, {address.suite}, {address.city}</p>
-                <Link to={`/`} style={ButonStyle} >Details</Link> <br/>
+                <button style={ButonStyle} onClick={this.openUpdateModal}>Edit</button> <br/>
                 <button style={ButonStyle} onClick={()=>this.props.deleteUser(id)}>Delete</button> <br/>
+                <UpdateUser isOpen={this.state.updateModalOpen} close={this.closeUpdateModal} user={this.props.user}/>
             </div>
         );
     }
 };
 
-// export default connect(null,{deleteUser})(User);
-export default User;
+
+
+export default connect( null,{})(User);

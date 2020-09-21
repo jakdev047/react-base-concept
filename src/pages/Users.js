@@ -11,6 +11,7 @@ class Users extends Component {
         createModalOpen: false
     }
 
+    // for add modal
     openCreateModal = () => {
         this.setState({
             createModalOpen: true
@@ -40,7 +41,11 @@ class Users extends Component {
                     {
                         this.props.usersData.loading ? (<h2>Loading</h2>) : (
                             this.props.usersData.error ? (<h2>{this.props.usersData.error}</h2>) :
-                            this.props.usersData.users.map(user=> <User key={user.id} user={user} deleteUser={this.props.deleteUser} /> )
+                            this.props.usersData.users.map(user=> <User 
+                                key={user.id} 
+                                user={user} 
+                                deleteUser={this.props.deleteUser}
+                            /> )
                         )
                     }
                 </div>

@@ -1,5 +1,13 @@
 import axios from 'axios';
-import { ADD_USER_REQUEST, DELETE_USER_REQUEST, FETCH_USERS_FAILURE, FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS } from './types';
+import { 
+    ADD_USER_REQUEST, 
+    DELETE_USER_REQUEST, 
+    FETCH_USERS_FAILURE, 
+    FETCH_USERS_REQUEST, 
+    FETCH_USERS_SUCCESS,
+    SET_CURRENT_REQUEST,
+    CLEAR_CURRENT_USER, UPDATE_USER_REQUEST
+} from './types';
 
 // loadUsers
 export const fetchUsersRequest = () => {
@@ -60,6 +68,23 @@ export const addUserRequest = user => dispatch => {
                 .then(response=>{
                     dispatch({
                         type: ADD_USER_REQUEST,
+                        payload: user
+                    });
+                })
+                .catch(error=>{
+                    const errorMsg = error.message;
+                    dispatch(fetchUsersFailure(errorMsg));
+                    console.log(error)
+                });
+};
+
+// update
+export const updateUserRequest = (id,user) => dispatch => {
+    return axios.put(`https://jsonplaceholder.typicode.com/users/${id}`,user)
+                .then(response=>{
+                    const user = response.data;
+                    dispatch({
+                        type: UPDATE_USER_REQUEST,
                         payload: user
                     });
                 })
