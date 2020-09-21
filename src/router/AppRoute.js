@@ -12,6 +12,7 @@ import SinglePerson from '../pages/SinglePerson';
 import Uncontrol from '../pages/Uncontrol';
 import ControlForm from '../pages/ControlForm';
 import Users from '../pages/Users';
+import TransitionItem from '../pages/TransitionItem';
 
 class AppRoute extends Component {
 
@@ -30,6 +31,7 @@ class AppRoute extends Component {
           <Route exact path='/single-person/:personId/:personName' component={SinglePerson}/>
           <Route exact path='/uncontrol-form' component={Uncontrol}/>
           <Route exact path='/control-form' component={ControlForm}/>
+          <Route exact path='/transion-effect' component={TransitionItem}/>
           <Redirect from="/" to="/count" />
           <Route path='*' component={NotFound}/>
 
