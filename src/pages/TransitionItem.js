@@ -1,16 +1,23 @@
 import React, { Component, Fragment } from 'react';
-import { Transition } from 'react-transition-group';
+import { CSSTransition, Transition } from 'react-transition-group';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
 
 class TransitionItem extends Component {
 
     state = {
-        show: true
+        show: true,
+        cssShow: true
     }
 
     tanstionEffect = () => {
         this.setState({
             show: !this.state.show
+        })
+    }
+
+    cssTanstionEffect = () => {
+        this.setState({
+            cssShow: !this.state.cssShow
         })
     }
 
@@ -25,8 +32,11 @@ class TransitionItem extends Component {
                 <div className="container">
                     <h2>Transtions</h2>
                     <div className="row">
-                        <div className="col-12">
+                        <div className="col-12 py-3">
                             <button className="btn btn-success" onClick={this.tanstionEffect}>Toggle</button>
+                        </div>
+                        <div className="col-12 py-3">
+                            <button className="btn btn-success" onClick={this.cssTanstionEffect}>Css Transition Effect</button>
                         </div>
                     </div>
                     <Transition 
@@ -65,6 +75,21 @@ class TransitionItem extends Component {
                     </Transition>
                     
                     <p className="py-3"> I am a outside of Transtion Body</p>
+
+                    <CSSTransition classNames="myClass" in={this.state.cssShow}  timeout={animateTime} mountOnEnter unmountOnExit> 
+                        {
+                            mode => (
+                                <div style={{
+                                    background: '#000',
+                                    color: '#fff!important',
+                                    borderRadius: '4px',
+                                    padding: '10px',
+                                }}>
+                                    <p className="transtion-para"> I am a CSSTransition Body</p>
+                                </div>
+                            )
+                        }
+                    </CSSTransition>
                 </div>
 
             </Fragment>
