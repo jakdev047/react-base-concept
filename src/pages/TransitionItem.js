@@ -15,6 +15,10 @@ class TransitionItem extends Component {
     }
 
     render() {
+        const animateTime = {
+            enter: 700,
+            exit: 500
+        }
         return (
             <Fragment>
                 <TopNavigation title="Transtion Effect" />
@@ -25,7 +29,16 @@ class TransitionItem extends Component {
                             <button className="btn btn-success" onClick={this.tanstionEffect}>Toggle</button>
                         </div>
                     </div>
-                    <Transition in={this.state.show}  timeout={2000}>
+                    <Transition 
+                        in={this.state.show}  
+                        timeout={2000}
+                        onEnter={()=>console.log('onEnter')}
+                        onEntering={()=>console.log('onEntering')}
+                        onEntered={()=>console.log('onEntered')}
+                        onExit={()=>console.log('onExit')}
+                        onExiting={()=>console.log('onExiting')}
+                        onExited={()=>console.log('onExited')}
+                    >
                         { mode => ( <p>{mode}</p> ) }
                     </Transition>
 
@@ -36,20 +49,22 @@ class TransitionItem extends Component {
                     
                     */}
 
-                    <Transition in={this.state.show}  timeout={500}>
+                    <Transition in={this.state.show}  timeout={animateTime} mountOnEnter unmountOnExit>
                         { mode => ( 
                             <div style={{
                                 background: '#000',
                                 color: '#fff!important',
                                 borderRadius: '4px',
                                 padding: '10px',
-                                opacity: mode == 'exited' ? 0 : 1,
+                                opacity: mode == 'exiting' || mode == 'entering' ? 0 : 1,
                                 transition: 'opacity .5s ease-in-out'
                             }}>
                                 <p className="transtion-para"> I am a Transition Body</p>
                             </div>
                         )}
                     </Transition>
+                    
+                    <p className="py-3"> I am a outside of Transtion Body</p>
                 </div>
 
             </Fragment>
