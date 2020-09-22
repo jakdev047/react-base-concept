@@ -13,6 +13,7 @@ import Uncontrol from '../pages/Uncontrol';
 import ControlForm from '../pages/ControlForm';
 import Users from '../pages/Users';
 import TransitionItem from '../pages/TransitionItem';
+import FormikForm from '../pages/FormikForm';
 
 class AppRoute extends Component {
 
@@ -32,6 +33,7 @@ class AppRoute extends Component {
           <Route exact path='/uncontrol-form' component={Uncontrol}/>
           <Route exact path='/control-form' component={ControlForm}/>
           <Route exact path='/transion-effect' component={TransitionItem}/>
+          <Route exact path='/formik-form' component={FormikForm}/>
           <Redirect from="/" to="/count" />
           <Route path='*' component={NotFound}/>
 

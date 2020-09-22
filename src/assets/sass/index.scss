@@ -45,16 +45,22 @@ p.transtion-para {
 
 // react css transition
 .myClass-enter {
-    opacity: 0;
-  }
-  .myClass-enter-active {
-    opacity: 1;
-    transition: opacity 700ms;
-  }
-  .myClass-exit {
-    opacity: 1;
-  }
-  .myClass-exit-active {
-    opacity: 0;
-    transition: opacity 500ms;
-  }
+  opacity: 0;
+}
+.myClass-enter-active {
+  opacity: 1;
+  transition: opacity 700ms;
+}
+.myClass-exit {
+  opacity: 1;
+}
+.myClass-exit-active {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+// error
+.error {
+  text-align: left;
+  color: #ff0000;
+}
