@@ -66,7 +66,7 @@ class TransitionItem extends Component {
                                 color: '#fff!important',
                                 borderRadius: '4px',
                                 padding: '10px',
-                                opacity: mode == 'exiting' || mode == 'entering' ? 0 : 1,
+                                opacity: mode === 'exiting' || mode === 'entering' ? 0 : 1,
                                 transition: 'opacity .5s ease-in-out'
                             }}>
                                 <p className="transtion-para"> I am a Transition Body</p>
