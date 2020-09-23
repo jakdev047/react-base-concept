@@ -28,6 +28,7 @@ class BasicForm extends Component {
                             <li><Link to='/uncontrol-form'>Uncontrole Form</Link></li>
                             <li><Link to='/control-form'>Controle Form</Link></li>
                             <li><Link to="/formik-form">Formik Form</Link></li>
+                            <li><Link to="/formik-component">Formik Component</Link></li>
                         </ul>
                     </div>
                 </div>
