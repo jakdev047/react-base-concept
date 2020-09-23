@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
 import TextInput from '../components/TextInput/TextInput';
 
@@ -13,35 +14,42 @@ const onSubmit = values => {
     console.log(values);
 }
 
-const validate = values => {
-    const errors = {};
+// const validate = values => {
+//     const errors = {};
 
-    if (!values.name) {
-        errors.name = 'Required';
-    }
+//     if (!values.name) {
+//         errors.name = 'Required';
+//     }
 
-    if (!values.email) {
-        errors.email = 'Required';
-    }else if( !/^[A-Z0-9._%+-]+@[A-Z]+\.[A-Z]{2,4}$/i.test(values.email) ) {
-        errors.email = 'Invalid Email Valid';
-    }
+//     if (!values.email) {
+//         errors.email = 'Required';
+//     }else if( !/^[A-Z0-9._%+-]+@[A-Z]+\.[A-Z]{2,4}$/i.test(values.email) ) {
+//         errors.email = 'Invalid Email Valid';
+//     }
 
-    if (!values.profession) {
-        errors.profession = 'Required';
-    }
+//     if (!values.profession) {
+//         errors.profession = 'Required';
+//     }
 
-    return errors;
-}
+//     return errors;
+// }
+
+const validationSchema = Yup.object({
+    name: Yup.string().required('Name is required'),
+    email: Yup.string().email('Invalid Email').required('Email is required'),
+    profession: Yup.string().required('Profession is required')
+});
 
 const FormikForm = () => {
 
     const formik = useFormik({
         initialValues,
         onSubmit,
-        validate
+        validationSchema
+        // validate
     });
 
-    console.log(formik.errors,formik.touched);
+    // console.log(formik.errors,formik.touched);
 
     return (
         <Fragment>
@@ -56,9 +64,7 @@ const FormikForm = () => {
                                 placeholder="Enter Name" 
                                 id="name" 
                                 name="name" 
-                                value={formik.values.name} 
-                                onChange={formik.handleChange} 
-                                onBlur={formik.handleBlur}
+                                {...formik.getFieldProps('name')}
                             />
                             {
                                 formik.touched.name && formik.errors.name ? (
@@ -73,9 +79,7 @@ const FormikForm = () => {
                                 type="email"
                                 id="email" 
                                 name="email" 
-                                value={formik.values.email} 
-                                onChange={formik.handleChange} 
-                                onBlur={formik.handleBlur}
+                                {...formik.getFieldProps('email')}
                             />
                             {
                                 formik.touched.email && formik.errors.email ? (
@@ -89,9 +93,7 @@ const FormikForm = () => {
                                 placeholder="Enter Profession" 
                                 id="profession" 
                                 name="profession" 
-                                value={formik.values.profession} 
-                                onChange={formik.handleChange} 
-                                onBlur={formik.handleBlur}
+                                {...formik.getFieldProps('profession')}
                             />
                             {
                                 formik.touched.profession && formik.errors.profession ? (
