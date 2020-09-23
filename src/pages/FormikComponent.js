@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
+import TextError from '../components/TextError/TextError';
 
 const initialValues = {
     name: '',
@@ -34,17 +35,19 @@ const FormikComponent = () => {
                         <div className="form-group">
                             <label htmlFor="name">Name*: </label>
                             <Field type="text" id="name" name="name" />
-                            <ErrorMessage name="name" />
+                            <ErrorMessage name="name" component={TextError}/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="email">Email*: </label>
                             <Field type="email" id="email" name="email" />
-                            <ErrorMessage name="email" />
+                            <ErrorMessage name="email" component={TextError} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="profession">Profession*: </label>
                             <Field type="text" id="profession" name="profession" />
-                            <ErrorMessage name="profession" />
+                            <ErrorMessage name="profession">
+                                { errorMsg => <div className="error">{errorMsg}</div> }
+                            </ErrorMessage>
                         </div>
                         <div className="form-group">
                             <label htmlFor="address">Address: </label>
