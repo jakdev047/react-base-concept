@@ -9,7 +9,11 @@ const initialValues = {
     email: '',
     profession: '',
     address: '',
-    comments: ''
+    comments: '',
+    social: {
+        facebook: '',
+        twitter: ''
+    }
 }
 
 const onSubmit = values => {
@@ -66,6 +70,14 @@ const FormikComponent = () => {
                                     }
                                 }
                             </Field>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="social">Facebook: </label>
+                            <Field type="text" id="social" name="social.facebook" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="social">Twitter: </label>
+                            <Field type="text" id="social" name="social.twitter" />
                         </div>
                         <div className="form-group">
                             <label htmlFor="comments">Comments: </label>
