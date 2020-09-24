@@ -13,7 +13,8 @@ const initialValues = {
     social: {
         facebook: '',
         twitter: ''
-    }
+    },
+    phoneNumbers: ['','']
 }
 
 const onSubmit = values => {
@@ -78,6 +79,14 @@ const FormikComponent = () => {
                         <div className="form-group">
                             <label htmlFor="social">Twitter: </label>
                             <Field type="text" id="social" name="social.twitter" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="phnNumber1">Primary Numbers: </label>
+                            <Field type="text" id="phnNumber1" name="phoneNumbers[0]" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="phnNumber12">Secondary Numbers: </label>
+                            <Field type="text" id="phnNumber2" name="phoneNumbers[1]" />
                         </div>
                         <div className="form-group">
                             <label htmlFor="comments">Comments: </label>
