@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage, FieldArray, FastField } from 'formik';
 import * as Yup from 'yup';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
@@ -16,6 +16,20 @@ const initialValues = {
     },
     phoneNumbers: ['',''],
     phNumbers: ['']
+}
+
+const savedValues = {
+    name: 'Jubayer',
+    email: 'shuvo047niter@gmail.com',
+    profession: 'Frontend Developer',
+    address: 'Matuail,Jatrabari,Dhaka',
+    comments: 'Hello World',
+    social: {
+        facebook: 'facebook',
+        twitter: 'twitter'
+    },
+    phoneNumbers: ['012345','098765'],
+    phNumbers: ['012345']
 }
 
 const onSubmit = (values,onSubmitProps) => {
@@ -39,21 +53,22 @@ const validateComments = value => {
 }
 
 const FormikComponent = () => {
+    const [formValues,setFormValues] = useState(null);
     return (
         <Fragment>
             <TopNavigation title="Formik Form" />
             <div className="container">
                 <h2>Formik Component</h2>
                 <Formik 
-                    initialValues={initialValues} 
+                    initialValues={ formValues || initialValues } 
                     onSubmit={onSubmit} 
                     validationSchema={validationSchema}
+                    enableReinitialize
                     // validateOnChange={false}
                     // validateOnBlur={false}
                 >
                     {
                         formik => {
-                            console.log(formik);
                             return (
                                 <Form>
                                     <div className="form-group">
@@ -161,6 +176,9 @@ const FormikComponent = () => {
                                             comments:true
                                         })}>
                                             Visit Fields
+                                        </button>
+                                        <button type="button" className="btn btn-info" onClick={()=>setFormValues(savedValues)}>
+                                            Load Save Data
                                         </button>
                                     </div>
                                     <div className="form-group">
