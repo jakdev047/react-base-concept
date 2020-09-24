@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, FieldArray, FastField } from 'formik';
 import * as Yup from 'yup';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
 import TextError from '../components/TextError/TextError';
@@ -14,7 +14,8 @@ const initialValues = {
         facebook: '',
         twitter: ''
     },
-    phoneNumbers: ['','']
+    phoneNumbers: ['',''],
+    phNumbers: ['']
 }
 
 const onSubmit = values => {
@@ -85,8 +86,40 @@ const FormikComponent = () => {
                             <Field type="text" id="phnNumber1" name="phoneNumbers[0]" />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="phnNumber12">Secondary Numbers: </label>
+                            <label htmlFor="phnNumber2">Secondary Numbers: </label>
                             <Field type="text" id="phnNumber2" name="phoneNumbers[1]" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="phNumbers">List Of Phone Numbers: </label>
+                            <FieldArray name="phNumbers">
+                                {
+                                    fieldArrayProps => {
+                                        const { push, remove, form} = fieldArrayProps;
+                                        const { values } = form;
+                                        const { phNumbers } = values;
+                                        return (
+                                            <div>
+                                                {
+                                                    phNumbers.map((phNumber,index)=>(
+                                                        <div key={index}>
+                                                            <FastField name={`phNumbers[${index}]`} />
+                                                            {
+                                                                index > 0 &&
+                                                                <button type="button" className="btn btn-danger" onClick={()=>remove(index)}>
+                                                                    {' '} - {' '}
+                                                                </button>
+                                                            }
+                                                            <button type="button" className="btn btn-success" onClick={()=>push('')}>
+                                                                {' '} + {' '}
+                                                            </button>
+                                                        </div>
+                                                    ))
+                                                }
+                                            </div>
+                                        )
+                                    }
+                                }
+                            </FieldArray>
                         </div>
                         <div className="form-group">
                             <label htmlFor="comments">Comments: </label>
