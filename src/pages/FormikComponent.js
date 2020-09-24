@@ -26,9 +26,16 @@ const validationSchema = Yup.object({
     name: Yup.string().trim().required('Name is required'),
     email: Yup.string().trim().email('Invalid Email').required('Email is required'),
     profession: Yup.string().trim().required('Profession is required'),
-    address: Yup.string().trim(),
-    comments: Yup.string().trim()
+    comments: Yup.string().required('Comments is required'),
 });
+
+const validateComments = value => {
+    let error;
+    if(!value) {
+        error = 'Required';
+    }
+    return error;
+}
 
 const FormikComponent = () => {
     return (
@@ -36,7 +43,13 @@ const FormikComponent = () => {
             <TopNavigation title="Formik Form" />
             <div className="container">
                 <h2>Formik Component</h2>
-                <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+                <Formik 
+                    initialValues={initialValues} 
+                    onSubmit={onSubmit} 
+                    validationSchema={validationSchema}
+                    validateOnChange={false}
+                    validateOnBlur={false}
+                >
                     <Form>
                         <div className="form-group">
                             <label htmlFor="name">Name*: </label>
@@ -123,7 +136,8 @@ const FormikComponent = () => {
                         </div>
                         <div className="form-group">
                             <label htmlFor="comments">Comments: </label>
-                            <Field as="textarea" id="comments" name="comments" />
+                            <Field as="textarea" id="comments" name="comments" validate={validateComments} />
+                            <ErrorMessage name="comments" component={TextError}/>
                         </div>
                         <div className="form-group">
                             <button type="submit" className="btn btn-success">Submit</button>
