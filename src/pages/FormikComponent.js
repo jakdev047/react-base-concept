@@ -18,8 +18,9 @@ const initialValues = {
     phNumbers: ['']
 }
 
-const onSubmit = values => {
+const onSubmit = (values,onSubmitProps) => {
     console.log(values);
+    onSubmitProps.setSubmitting(false);
 }
 
 const validationSchema = Yup.object({
@@ -47,8 +48,8 @@ const FormikComponent = () => {
                     initialValues={initialValues} 
                     onSubmit={onSubmit} 
                     validationSchema={validationSchema}
-                    validateOnChange={false}
-                    validateOnBlur={false}
+                    // validateOnChange={false}
+                    // validateOnBlur={false}
                 >
                     {
                         formik => {
@@ -163,7 +164,13 @@ const FormikComponent = () => {
                                         </button>
                                     </div>
                                     <div className="form-group">
-                                        <button type="submit" className="btn btn-success">Submit</button>
+                                        <button 
+                                            type="submit" 
+                                            className="btn btn-success" 
+                                            disabled={!formik.isValid || formik.isSubmitting}
+                                        >
+                                            Submit
+                                        </button>
                                     </div>
                                 </Form>
                             )
