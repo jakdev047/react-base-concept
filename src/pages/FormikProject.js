@@ -7,11 +7,13 @@ import FormikControls from '../components/FormikControl/FormikControls';
 const FormikProject = () => {
 
     const initialValues = {
-        email:''
+        email:'',
+        descripption: ''
     }
 
     const validationSchema = Yup.object({
-        email: Yup.string().required('Email is required')
+        email: Yup.string().required('Email is required'),
+        descripption: Yup.string().required('Description is required'),
     });
 
     const onSubmit = (values,onSubmitProps) => {
@@ -32,6 +34,9 @@ const FormikProject = () => {
                                 <Form>
                                     <div className="form-group">
                                         <FormikControls control="input" type="email" name="email" label=" Email * : " />
+                                    </div>
+                                    <div className="form-group">
+                                        <FormikControls control="textarea" name="descripption" label=" Descripption * : " />
                                     </div>
                                     <div className="form-group">
                                         <button type="submit" className="btn btn-success" disabled={!formik.isValid || formik.isSubmitting}>
