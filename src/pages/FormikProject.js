@@ -19,11 +19,18 @@ const FormikProject = () => {
         {key: 'Option 3', value:'roption3'},
     ]
 
+    const checkboxOptions = [
+        {key: 'Option 1', value:'coption1'},
+        {key: 'Option 2', value:'coption2'},
+        {key: 'Option 3', value:'coption3'},
+    ]
+
     const initialValues = {
         email:'',
         descripption: '',
         selectOption: '',
-        radioOption: ''
+        radioOption: '',
+        checkboxOption: []
     }
 
     const validationSchema = Yup.object({
@@ -31,6 +38,7 @@ const FormikProject = () => {
         descripption: Yup.string().required('Description is required'),
         selectOption: Yup.string().required('Select Option is required'),
         radioOption: Yup.string().required('radio Option is required'),
+        checkboxOption: Yup.array().required('Check Option is required'),
     });
 
     const onSubmit = (values,onSubmitProps) => {
@@ -60,6 +68,9 @@ const FormikProject = () => {
                                     </div>
                                     <div className="form-group">
                                         <FormikControls control="radio" name="radioOption" options={radioOptions} label=" Radio Topic * : " />
+                                    </div>
+                                    <div className="form-group">
+                                        <FormikControls control="checkbox" name="checkboxOption" options={checkboxOptions} label="Checkbox Topics*:" />
                                     </div>
                                     <div className="form-group">
                                         <button type="submit" className="btn btn-success" disabled={!formik.isValid || formik.isSubmitting}>
