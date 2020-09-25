@@ -13,16 +13,24 @@ const FormikProject = () => {
         {key: 'Option 3', value:'option3'},
     ]
 
+    const radioOptions = [
+        {key: 'Option 1', value:'roption1'},
+        {key: 'Option 2', value:'roption2'},
+        {key: 'Option 3', value:'roption3'},
+    ]
+
     const initialValues = {
         email:'',
         descripption: '',
-        selectOption: ''
+        selectOption: '',
+        radioOption: ''
     }
 
     const validationSchema = Yup.object({
         email: Yup.string().required('Email is required'),
         descripption: Yup.string().required('Description is required'),
         selectOption: Yup.string().required('Select Option is required'),
+        radioOption: Yup.string().required('radio Option is required'),
     });
 
     const onSubmit = (values,onSubmitProps) => {
@@ -49,6 +57,9 @@ const FormikProject = () => {
                                     </div>
                                     <div className="form-group">
                                         <FormikControls control="select" name="selectOption" options={dropdownOptions} label=" Select a Topic * : " />
+                                    </div>
+                                    <div className="form-group">
+                                        <FormikControls control="radio" name="radioOption" options={radioOptions} label=" Radio Topic * : " />
                                     </div>
                                     <div className="form-group">
                                         <button type="submit" className="btn btn-success" disabled={!formik.isValid || formik.isSubmitting}>
