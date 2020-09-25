@@ -11,6 +11,7 @@ class Home extends Component {
                 <h2>React Base Foundation</h2>
                 <ul className="menu">
                     <li><Link to="/transion-effect">Transtion Effect</Link></li>
+                    <li><Link to="/registration">Registration</Link></li>
                 </ul>
             </Fragment>
         )

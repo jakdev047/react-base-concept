@@ -16,6 +16,7 @@ import TransitionItem from '../pages/TransitionItem';
 import FormikForm from '../pages/FormikForm';
 import FormikComponent from '../pages/FormikComponent';
 import FormikProject from '../pages/FormikProject';
+import Registration from '../pages/Registration';
 
 class AppRoute extends Component {
 
@@ -38,6 +39,7 @@ class AppRoute extends Component {
           <Route exact path='/formik-form' component={FormikForm}/>
           <Route exact path='/formik-component' component={FormikComponent}/>
           <Route exact path='/formik-project' component={FormikProject}/>
+          <Route exact path='/registration' component={Registration}/>
           <Redirect from="/" to="/count" />
           <Route path='*' component={NotFound}/>
 
