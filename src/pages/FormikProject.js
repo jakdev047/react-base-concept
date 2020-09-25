@@ -6,14 +6,23 @@ import FormikControls from '../components/FormikControl/FormikControls';
 
 const FormikProject = () => {
 
+    const dropdownOptions = [
+        {key: 'Select an Option', value:''},
+        {key: 'Option 1', value:'option1'},
+        {key: 'Option 2', value:'option2'},
+        {key: 'Option 3', value:'option3'},
+    ]
+
     const initialValues = {
         email:'',
-        descripption: ''
+        descripption: '',
+        selectOption: ''
     }
 
     const validationSchema = Yup.object({
         email: Yup.string().required('Email is required'),
         descripption: Yup.string().required('Description is required'),
+        selectOption: Yup.string().required('Select Option is required'),
     });
 
     const onSubmit = (values,onSubmitProps) => {
@@ -36,7 +45,10 @@ const FormikProject = () => {
                                         <FormikControls control="input" type="email" name="email" label=" Email * : " />
                                     </div>
                                     <div className="form-group">
-                                        <FormikControls control="textarea" name="descripption" label=" Descripption * : " />
+                                        <FormikControls control="textarea" name="descripption" label=" Description * : " />
+                                    </div>
+                                    <div className="form-group">
+                                        <FormikControls control="select" name="selectOption" options={dropdownOptions} label=" Select a Topic * : " />
                                     </div>
                                     <div className="form-group">
                                         <button type="submit" className="btn btn-success" disabled={!formik.isValid || formik.isSubmitting}>
