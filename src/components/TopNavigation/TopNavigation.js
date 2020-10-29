@@ -18,6 +18,7 @@ class TopNavigation extends Component {
                             <li><NavLink exact to="/persons">Persons</NavLink></li>
                             <li><NavLink exact to="/students">Students</NavLink></li>
                             <li><NavLink exact to="/forms">Form</NavLink></li>
+                            <li><NavLink exact to="/function-helper">Function Helper</NavLink></li>
                         </ul>
                     </nav>
                 </div>

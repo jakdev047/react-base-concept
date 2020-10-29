@@ -17,6 +17,8 @@ import FormikForm from '../pages/FormikForm';
 import FormikComponent from '../pages/FormikComponent';
 import FormikProject from '../pages/FormikProject';
 import Registration from '../pages/Registration';
+import FunctionHelper from '../pages/FunctionHelper';
+import ReduceHelper from '../pages/ReduceHelper';
 
 class AppRoute extends Component {
 
@@ -40,6 +42,8 @@ class AppRoute extends Component {
           <Route exact path='/formik-component' component={FormikComponent}/>
           <Route exact path='/formik-project' component={FormikProject}/>
           <Route exact path='/registration' component={Registration}/>
+          <Route exact path='/function-helper' component={FunctionHelper}/>
+          <Route exact path='/reduce-helper' component={ReduceHelper}/>
           <Redirect from="/" to="/count" />
           <Route path='*' component={NotFound}/>
 
