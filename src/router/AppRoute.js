@@ -19,6 +19,7 @@ import FormikProject from '../pages/FormikProject';
 import Registration from '../pages/Registration';
 import FunctionHelper from '../pages/FunctionHelper';
 import ReduceHelper from '../pages/ReduceHelper';
+import Regex from '../pages/Regex';
 
 class AppRoute extends Component {
 
@@ -44,6 +45,7 @@ class AppRoute extends Component {
           <Route exact path='/registration' component={Registration}/>
           <Route exact path='/function-helper' component={FunctionHelper}/>
           <Route exact path='/reduce-helper' component={ReduceHelper}/>
+          <Route exact path='/regular-expression' component={Regex}/>
           <Redirect from="/" to="/count" />
           <Route path='*' component={NotFound}/>
 

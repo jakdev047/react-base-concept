@@ -19,6 +19,7 @@ class TopNavigation extends Component {
                             <li><NavLink exact to="/students">Students</NavLink></li>
                             <li><NavLink exact to="/forms">Form</NavLink></li>
                             <li><NavLink exact to="/function-helper">Function Helper</NavLink></li>
+                            <li><NavLink exact to="/regular-expression">Reguler Expression</NavLink></li>
                         </ul>
                     </nav>
                 </div>
