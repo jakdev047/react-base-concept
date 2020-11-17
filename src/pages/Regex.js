@@ -59,6 +59,25 @@ const Regex = () => {
     * = more times => /^REGEX*CHECK$/i  example: REGEX123CHECK
     ? = optional => /^REGEX?CHECK$/i  example: REGEXCHECK (X or not other wise false  REGEYCHECK => return false) 
 
+
+    Character Sets
+    ===============
+    [abc] = a or b or c
+    [^abc] = a b c without
+    [0-9] = 0 to 9
+    [a-z] = a to z
+    [^0-9] = 0 to 9 without
+    [^a-z] = a to z without
+    /^[A-Z]/ = First letter must uppercase
+    (ab|bc) = ab or bc match
+
+    Quantifier and Grouping
+    =======================
+    /^el{3}/ = elll(true) ell(false)
+    /^el{2,5}/ = 2 to 5 times elll(true) el(false)
+    /^([0-9]){3}/ = 0 to 9  3times
+    /^01[0-9]{9}$/ = bangladeshi phone number check
+
 */
 
 
