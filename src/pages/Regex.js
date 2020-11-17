@@ -1,4 +1,4 @@
-import React, { Fragment} from 'react';
+import React, { Fragment } from 'react';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
 
 /* 
@@ -28,7 +28,7 @@ const Regex = () => {
     let result3 = str.search(rex);
 
     // replace() - Return new string
-    let result4 = str.replace(rex,"Reguler expression");
+    let result4 = str.replace(rex, "Reguler expression");
 
     console.log("Initial: ", rex);
     console.log("Initial with source method: ", rex.source);
@@ -37,6 +37,45 @@ const Regex = () => {
     console.log("Hello word check with match method: ", result2);
     console.log("Hello word check with search method: ", result3);
     console.log("Hello word check with replace method: ", result4);
+
+
+    // 2nd part
+    let re;
+    let str1;
+
+    // literal Character
+    re = /hello/i;
+    str1 = "Hello World";
+
+/* 
+    / REGEX_CHECK / 
+    i = case sensetive remove =>     / REGEX_CHECK /i
+
+    Meta character
+    ==============
+    ^ = must start with REGEX_CHECK string => /^REGEX_CHECK /i
+    $ = must end with REGEX_CHECK string => /^REGEX_CHECK$/i
+    . = matches any one character => /^REGEX.CHECK$/i  example: REGEX1CHECK
+    * = more times => /^REGEX*CHECK$/i  example: REGEX123CHECK
+    ? = optional => /^REGEX?CHECK$/i  example: REGEXCHECK (X or not other wise false  REGEYCHECK => return false) 
+
+*/
+
+
+
+
+    console.log(re.exec(str1));
+    reTest(re, str1)
+
+    function reTest(re, str) {
+        if (re.test(str)) {
+            console.log(`'${str}' matches '${re.source}'`);
+        }
+        else {
+            console.log(`'${str}' doesn\'t matches '${re.source}'`);
+        }
+    }
+
 
     return (
         <Fragment>
