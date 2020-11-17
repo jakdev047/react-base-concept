@@ -78,6 +78,23 @@ const Regex = () => {
     /^([0-9]){3}/ = 0 to 9  3times
     /^01[0-9]{9}$/ = bangladeshi phone number check
 
+    Shorthand Characters
+    ====================
+    /\w/ = word character
+    /\W/ = word without character
+    /\d/ = digit character
+    /\D/ = digit without character
+    /\s/ = space character
+    /\S/ = space without character
+    /\b/ = word boundary character  example: /hello\b/  hello worlde (true) hellowo (false)
+    /\B/ = word boundary without character
+    /\o/ = null
+    /\n/ = new line
+
+    Assertions
+    ===========
+    /x(?=y)/  =  xy (true) x(false)
+
 */
 
 
