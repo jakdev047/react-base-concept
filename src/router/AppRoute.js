@@ -20,6 +20,8 @@ import Registration from '../pages/Registration';
 import FunctionHelper from '../pages/FunctionHelper';
 import ReduceHelper from '../pages/ReduceHelper';
 import Regex from '../pages/Regex';
+import Projects from '../pages/Projects';
+import JsToExcel from '../pages/JsToExcel';
 
 class AppRoute extends Component {
 
@@ -46,6 +48,8 @@ class AppRoute extends Component {
           <Route exact path='/function-helper' component={FunctionHelper}/>
           <Route exact path='/reduce-helper' component={ReduceHelper}/>
           <Route exact path='/regular-expression' component={Regex}/>
+          <Route exact path='/all-projects' component={Projects}/>
+          <Route exact path='/js-to-excel' component={JsToExcel}/>
           <Redirect from="/" to="/count" />
           <Route path='*' component={NotFound}/>
 
