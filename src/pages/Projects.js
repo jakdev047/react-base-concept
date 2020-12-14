@@ -12,6 +12,7 @@ class Projects extends Component {
                         <h2> All Projects </h2>
                         <ul className="menu">
                             <li><Link to='/js-to-excel'>JS to Excel</Link></li>
+                            <li><Link to='/excel-to-js'>Excel to JS</Link></li>
                         </ul>
                     </div>
                 </div>
