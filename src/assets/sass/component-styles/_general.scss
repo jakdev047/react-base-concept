@@ -68,3 +68,21 @@ input{border: 1px solid transparent !important;}
     transition: opacity 0.3s 0.3s ease; 
     opacity: 0;
 }
+
+// home page
+.home-section {
+    position: relative;
+    max-width: 450px;
+    margin: 0 auto;
+}
+.rotate-animation {
+    animation: triangleAnimation 3s infinite;
+}
+@keyframes triangleAnimation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
