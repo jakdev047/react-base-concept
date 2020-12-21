@@ -75,6 +75,18 @@ input{border: 1px solid transparent !important;}
     max-width: 450px;
     margin: 0 auto;
 }
+
+.mackbook-section {
+    transform: translateY(30px);
+    transition: transform 1.5s linear;
+  
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+}
+
+
 .rotate-animation {
     animation: triangleAnimation 3s infinite;
 }

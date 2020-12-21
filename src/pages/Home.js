@@ -2,11 +2,60 @@ import React, { Component, Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
 
+import $ from "jquery";
+
 // images
 import triangleImg from "../assets/images/triangle.png";
+import mackbookImg from "../assets/images/macbook.png";
 
 
 class Home extends Component {
+    onScrollFunc = () => {
+        // Detect request animation frame
+        var scroll = window.requestAnimationFrame ||
+                    // IE Fallback
+                    function(callback){ window.setTimeout(callback, 1000/60)};
+        var elementsToShow = document.querySelectorAll('.show-on-scroll'); 
+    
+        function loop() {
+    
+          elementsToShow.forEach(function (element) {
+            if (isElementInViewport(element)) {
+              element.classList.add('is-visible');
+            } else {
+              element.classList.remove('is-visible');
+            }
+          });
+    
+          scroll(loop);
+        }
+    
+        // Call the loop for the first time
+        loop();
+    
+        function isElementInViewport(el) {
+          // special bonus for those using jQuery
+          if (typeof $ === "function" && el instanceof $) {
+            el = el[0];
+          }
+          var rect = el.getBoundingClientRect();
+          return (
+            (rect.top <= 0
+              && rect.bottom >= 0)
+            ||
+            (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+              rect.top <= (window.innerHeight || document.documentElement.clientHeight))
+            ||
+            (rect.top >= 0 &&
+              rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+          );
+        }
+      }
+    
+      // real-time event
+      componentDidMount(){
+        window.addEventListener('scroll',this.onScrollFunc);
+      }
     render() {
         return (
             <Fragment>
@@ -21,6 +70,11 @@ class Home extends Component {
                         <img src={triangleImg} alt="effects"/>
                     </div>
                 </div>
+                <div style={{background: "#ddd",height: "100vh"}}></div>
+                <div className="mackbook-section text-center show-on-scroll">
+                    <img src={mackbookImg} alt="mackbook"/>
+                </div>
+                <div style={{background: "#ddd",height: "100vh"}}></div>
             </Fragment>
         )
     }
