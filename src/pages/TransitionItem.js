@@ -39,17 +39,17 @@ class TransitionItem extends Component {
                             <button className="btn btn-success" onClick={this.cssTanstionEffect}>Css Transition Effect</button>
                         </div>
                     </div>
-                    <Transition 
-                        in={this.state.show}  
+                    <Transition
+                        in={this.state.show}
                         timeout={2000}
-                        onEnter={()=>console.log('onEnter')}
-                        onEntering={()=>console.log('onEntering')}
-                        onEntered={()=>console.log('onEntered')}
-                        onExit={()=>console.log('onExit')}
-                        onExiting={()=>console.log('onExiting')}
-                        onExited={()=>console.log('onExited')}
+                        onEnter={() => console.log('onEnter')}
+                        onEntering={() => console.log('onEntering')}
+                        onEntered={() => console.log('onEntered')}
+                        onExit={() => console.log('onExit')}
+                        onExiting={() => console.log('onExiting')}
+                        onExited={() => console.log('onExited')}
                     >
-                        { mode => ( <p>{mode}</p> ) }
+                        {mode => (<p>{mode}</p>)}
                     </Transition>
 
                     {/*  
@@ -59,8 +59,8 @@ class TransitionItem extends Component {
                     
                     */}
 
-                    <Transition in={this.state.show}  timeout={animateTime} mountOnEnter unmountOnExit>
-                        { mode => ( 
+                    <Transition in={this.state.show} timeout={animateTime} mountOnEnter unmountOnExit>
+                        {mode => (
                             <div style={{
                                 background: '#000',
                                 color: '#fff!important',
@@ -73,10 +73,25 @@ class TransitionItem extends Component {
                             </div>
                         )}
                     </Transition>
-                    
+
+                    <Transition in={this.state.show} timeout={animateTime} mountOnEnter unmountOnExit>
+                        {mode => (
+                            <div style={{
+                                background: '#000',
+                                color: '#fff!important',
+                                borderRadius: '4px',
+                                padding: '10px',
+                                opacity: mode === 'exiting' || mode === 'entering' ? 0 : 1,
+                                transition: 'opacity .5s ease-in-out'
+                            }}>
+                                <p className="transtion-para"> I am a Transition Body</p>
+                            </div>
+                        )}
+                    </Transition>
+
                     <p className="py-3"> I am a outside of Transtion Body</p>
 
-                    <CSSTransition classNames="myClass" in={this.state.cssShow}  timeout={animateTime} mountOnEnter unmountOnExit> 
+                    <CSSTransition classNames="myClass" in={this.state.cssShow} timeout={animateTime} mountOnEnter unmountOnExit>
                         {
                             mode => (
                                 <div style={{
