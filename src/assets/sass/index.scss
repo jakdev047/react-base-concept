@@ -64,3 +64,17 @@ p.transtion-para {
   text-align: left;
   color: #ff0000;
 }
+
+
+// special css
+
+// next sibling
+.output-tax .ant-table-tbody > tr > td:last-child {
+  border-top: 1px solid #f0f0f0;
+}
+.output-tax .ant-table-tbody > tr > td[colspan="2"] + td {
+  display: none;
+}
+.output-tax .ant-table-container table > thead > tr:first-child th:last-child {
+  display: none;
+}
