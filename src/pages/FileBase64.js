@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FileBase64 from 'react-file-base64';
 import TopNavigation from '../components/TopNavigation/TopNavigation';
 const FileBase64Pages = () => {

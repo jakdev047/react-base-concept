@@ -14,6 +14,7 @@ class Projects extends Component {
                             <li><Link to='/js-to-excel'>JS to Excel</Link></li>
                             <li><Link to='/excel-to-js'>Excel to JS</Link></li>
                             <li><Link to='/file-base64'>File Base64</Link></li>
+                            <li><Link to='/react-flow'>React Flow</Link></li>
                         </ul>
                     </div>
                 </div>

@@ -24,6 +24,7 @@ import Projects from '../pages/Projects';
 import JsToExcel from '../pages/JsToExcel';
 import ExcelToJs from '../pages/ExcelToJs';
 import FileBase64Pages from '../pages/FileBase64';
+import ReactFlowPages from '../pages/ReactFlowPages';
 
 class AppRoute extends Component {
 
@@ -54,6 +55,7 @@ class AppRoute extends Component {
           <Route exact path='/js-to-excel' component={JsToExcel}/>
           <Route exact path='/excel-to-js' component={ExcelToJs}/>
           <Route exact path='/file-base64' component={FileBase64Pages}/>
+          <Route exact path='/react-flow' component={ReactFlowPages}/>
           <Redirect from="/" to="/count" />
           <Route path='*' component={NotFound}/>
 
