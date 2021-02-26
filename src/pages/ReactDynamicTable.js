@@ -235,6 +235,78 @@ const ReactDynamicTable = () => {
         }
     ];
 
+    let sameKey4
+    const refundColumns = [
+        {
+            title: "I am interested to get refund of my Closing Balance",
+            dataIndex: "desc",
+            key: "desc",
+            render: (value, row, index) => {
+                const obj = {
+                    children: <div className="text-left"> {value} </div>,
+                    props: {},
+                };
+                if (!(sameKey4 !== value)) {
+                    obj.props.rowSpan = 0;
+                    return obj;
+                }
+                const count = refundReports.filter(
+                    (item) =>
+                        item.outputTaxRowId === row.outputTaxRowId
+                ).length;
+                sameKey4 = value;
+                obj.props.rowSpan = count;
+                return obj;
+            },
+        },
+        {
+            title: "Items",
+            dataIndex: "items",
+            key: "items",
+            render: (v, r, index) => {
+                return <div className="text-left">{v}</div>;
+            },
+        },
+        {
+            title: "Note",
+            dataIndex: "note",
+            key: "note",
+        },
+        {
+            title: "Yes/No",
+            dataIndex: "yesNo",
+            key: "yesNo",
+        },
+    ];
+
+    const refundReports = [
+        {
+            outputTaxRowId: 1,
+            col: 1,
+            desc: "I am interested to get refund of my Closing Balance",
+            items: "Items",
+            note: "Note",
+            yesNo: "yes",
+        },
+        {
+            outputTaxRowId: 1,
+            col: 1,
+            desc: "I am interested to get refund of my Closing Balance",
+            items: "Requested Amount for Refund (VAT)",
+            note: "67",
+            yesNo: "yes",
+        },
+        {
+            outputTaxRowId: 1,
+            col: 1,
+            desc: "I am interested to get refund of my Closing Balance",
+            items: "Requested Amount for Refund (SD)",
+            note: "68",
+            yesNo: "no",
+        },
+        {}
+    ]
+
     let sameKey2;
     const columns2 = [
         {
@@ -345,6 +417,17 @@ const ReactDynamicTable = () => {
             sd: "SD",
             subform: "Sub Form"
         },
+        {
+            outputTaxRowId: 3,
+            col: 1,
+            nameOfSupply: "Goods/Service Based on Specific VAT",
+            nameOfSubSupply: "Local Purchase",
+            note: "Note",
+            value: "Value",
+            vat: "Vat",
+            sd: "SD",
+            subform: "Sub Form"
+        }
     ];
 
     let sameKey3;
@@ -466,6 +549,22 @@ const ReactDynamicTable = () => {
                 <Table
                     columns={columns}
                     dataSource={reports?.map((d, i) => ({ key: i, ...d }))}
+                    pagination={false}
+                    bordered={true}
+                />
+            </div>
+
+            <div className="refund mb-5">
+                <table className="table table-striped table-bordered text-center" style={{ margin: '0' }}>
+                    <thead>
+                        <tr>
+                            <th colSpan="4">Refund</th>
+                        </tr>
+                    </thead>
+                </table>
+                <Table
+                    columns={refundColumns}
+                    dataSource={refundReports?.map((d, i) => ({ key: i, ...d }))}
                     pagination={false}
                     bordered={true}
                 />

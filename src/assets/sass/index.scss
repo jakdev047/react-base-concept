@@ -69,6 +69,12 @@ p.transtion-para {
 // special css
 
 // next sibling
+.refund .ant-table-container table > tbody > tr:last-child {
+  display: none;
+}
+.refund .ant-table-container table > thead {
+  display: none;
+}
 .output-tax .ant-table-tbody > tr > td:last-child {
   border-top: 1px solid #f0f0f0;
 }
