@@ -9,39 +9,38 @@ font-family: 'Montserrat', sans-serif;
 =========================================*/
 
 // fonts
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 // general sass
 @import "./component-styles/variable";
 @import "./component-styles/general";
 
 body {
-    text-align: center;
+  text-align: center;
 }
 
-h2{
-    color: $secondaryColor;
-    text-align: center;
+h2 {
+  color: $secondaryColor;
+  text-align: center;
 }
 
-input{
-    border: 1px solid #000!important;
-    padding: 15px 25px;
-    background: #ddd;
+input {
+  border: 1px solid #000 !important;
+  padding: 15px 25px;
+  background: #ddd;
 }
 ul.menu li {
-    display: inline-block;
-    padding: 20px;
+  display: inline-block;
+  padding: 20px;
 }
 
 .navbar a.active {
-    color: $secondaryColor;
+  color: $secondaryColor;
 }
 
 p.transtion-para {
-    color: #fff;
+  color: #fff;
 }
-
 
 // react css transition
 .myClass-enter {
@@ -65,7 +64,6 @@ p.transtion-para {
   color: #ff0000;
 }
 
-
 // special css
 
 // next sibling
@@ -83,4 +81,59 @@ p.transtion-para {
 }
 .output-tax .ant-table-container table > thead > tr:first-child th:last-child {
   display: none;
+}
+
+// advance form
+/********** Input Start **********/
+
+.my-input {
+  position: relative;
+}
+
+.my-input input {
+  height: 56px;
+  width: 330px;
+  border-radius: 10px;
+  margin-bottom: 0px !important;
+}
+
+.my-input input.form-control {
+  position: relative;
+  background: transparent;
+  padding-left: 40px;
+}
+
+.my-input label {
+  position: absolute;
+  top: 0;
+  padding: 15px 0 0 13px;
+  transition: all 200ms;
+  opacity: 0.5;
+  left: 10px;
+  white-space: nowrap;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+.my-input .form-icon {
+  position: absolute;
+  top: 16px;
+  left: 15px;
+}
+
+.onFocusLabel {
+  font-size: 75%;
+  transform: translate3d(0, -60%, 0);
+  opacity: 1!important;
+  background: #fff;
+  padding: 5px 10px!important;
+  z-index: 2;
+}
+
+.onBlurLabel {
+  font-size: 100%;
+  transform: translate3d(0px, 0px, 0px);
+  opacity:  0.5!important;
+  background-color: transparent;
+  padding: 15px 0px 0px 30px!important;
 }

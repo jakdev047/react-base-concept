@@ -26,6 +26,8 @@ import ExcelToJs from '../pages/ExcelToJs';
 import FileBase64Pages from '../pages/FileBase64';
 import ReactFlowPages from '../pages/ReactFlowPages';
 import ReactDynamicTable from '../pages/ReactDynamicTable';
+import ComponentsModule from '../pages/Components';
+import AllTypeForm from '../pages/AllTypeForm';
 
 class AppRoute extends Component {
 
@@ -58,6 +60,8 @@ class AppRoute extends Component {
           <Route exact path='/file-base64' component={FileBase64Pages}/>
           <Route exact path='/react-flow' component={ReactFlowPages}/>
           <Route exact path='/react-dynamic-table' component={ReactDynamicTable}/>
+          <Route exact path='/components' component={ComponentsModule}/>
+          <Route exact path='/all-input-fields' component={AllTypeForm}/>
           <Redirect from="/" to="/count" />
           <Route path='*' component={NotFound}/>
 
