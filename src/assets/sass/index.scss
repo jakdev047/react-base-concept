@@ -91,49 +91,92 @@ p.transtion-para {
 }
 
 .my-input input {
-  height: 56px;
-  width: 330px;
-  border-radius: 10px;
+  height: 64px;
+  width: 100%;
+  border-radius: 7px;
   margin-bottom: 0px !important;
 }
 
-.my-input input.form-control {
+.my-input input.form-control,
+.my-input input.form-control:focus,
+.my-input input.form-control:hover {
   position: relative;
   background: transparent;
+  color: rgba(0, 0, 0, 0.87);
   padding-left: 40px;
+  border: 1px solid #e5e5e5 !important;
+  transition: all 0.3s ease-in-out;
 }
-
+.my-input input.form-control:hover {
+  border: 1px solid #1c1c1e !important;
+}
+.my-input input.form-control:focus {
+  border: 1px solid #1084f1 !important;
+}
+.my-input input.form-control.error-form-control {
+  border: 1px solid rgb(241, 14, 18) !important;
+  box-shadow: 0 0 0 0.2rem rgba(241, 14, 18, 0.25) !important;
+}
+.my-input input.form-control.error-form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(241, 14, 18, 0.25) !important;
+}
 .my-input label {
   position: absolute;
   top: 0;
   padding: 15px 0 0 13px;
   transition: all 200ms;
-  opacity: 0.5;
   left: 10px;
   white-space: nowrap;
   max-width: 300px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  color: #a69fa1;
   overflow: hidden;
 }
 
 .my-input .form-icon {
+  color: #a69fa1;
   position: absolute;
-  top: 16px;
+  top: 21px;
   left: 15px;
+  z-index: 1;
 }
 
-.onFocusLabel {
+.my-input .form-trail-icon {
+  color: #a69fa1;
+  left: auto;
+  right: 15px;
+}
+
+.my-input .form-icon.active,
+.my-input .form-icon.form-trail-icon.active {
+  color: #1084f1;
+}
+
+.onFocusLabel,
+.error-label.isValue {
   font-size: 75%;
-  transform: translate3d(0, -60%, 0);
-  opacity: 1!important;
-  background: #fff;
-  padding: 5px 10px!important;
+  transform: translate3d(0, 0, 0);
+  font-size: 12px !important;
+  color: #1084f1 !important;
+  background: transparent;
+  padding: 0px 0px 0px 30px !important;
   z-index: 2;
 }
 
-.onBlurLabel {
+.onBlurLabel,
+.error-label {
   font-size: 100%;
   transform: translate3d(0px, 0px, 0px);
-  opacity:  0.5!important;
+  opacity: 0.5 !important;
   background-color: transparent;
-  padding: 15px 0px 0px 30px!important;
+  padding: 19px 0px 0px 30px !important;
+}
+
+.error-label,
+.error,
+.error-form-icon {
+  color: #f11014 !important;
+  opacity: 1 !important;
 }

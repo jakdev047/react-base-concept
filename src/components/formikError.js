@@ -10,13 +10,16 @@ const FormikError = ({ errors, name, touched }) => {
   return (
     <p
       style={{
-        fontSize: "0.7rem",
+        fontSize: "14px",
         fontWeight: 400,
+        lineHeight: "24px",
+        letterSpacing: ".15px",
         width: "100%",
         marginTop: "0",
         marginBottom: "0",
+        textAlign: "left",
       }}
-      className={(errors[name] || errorMasseage)? "text-danger" : "d-none"}
+      className={errors[name] || errorMasseage ? "error" : "d-none"}
     >
       {errors && errors[name] && touched && touched[name]
         ? errors[name].value || errors[name]
