@@ -15,7 +15,7 @@ const FormikInputNotReq = (props) => {
     leadicon,
     trailicon,
   } = props;
-  const number = type === "number" ? String(Number(value)) : value;
+  // const number = type === "number" ? String(Number(value)) : value;
   const [isFocusForm, setIsFocusForm] = useState(false);
 
   return (
@@ -48,7 +48,7 @@ const FormikInputNotReq = (props) => {
       )}
       <Field
         {...props}
-        value={number}
+        value={value}
         name={name}
         placeholder={placeholder}
         type={type}

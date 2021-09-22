@@ -9,11 +9,15 @@ import {
   PermIdentityOutlined,
   LockOutlined,
 } from "@material-ui/icons";
+import { _todayDate } from "./../helper/_todayDate";
+import FormikSelect from "./../components/formikSelect";
 
 const initData = {
   name: "",
   email: "",
   phone: "",
+  fromDate: _todayDate(),
+  gender: "",
   password: "",
 };
 
@@ -87,13 +91,43 @@ const AllTypeForm = () => {
                       label="Phone"
                       value={values?.phone}
                       name="phone"
-                      type="phone"
+                      type="number"
                       className="form-control"
                       leadicon={"fa fa-mobile"}
                       errors={errors}
                       touched={touched}
                     />
                   </div>
+                </div>
+                <div className="col-lg-3">
+                  <div className="form-group my-input">
+                    <FormikInputNotReq
+                      // label="Form Date"
+                      value={values?.fromDate}
+                      name="fromDate"
+                      type="date"
+                      className="form-control"
+                      errors={errors}
+                      touched={touched}
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-4">
+                  <FormikSelect
+                    name="gender"
+                    options={[
+                      { value: 1, label: "Male" },
+                      { value: 2, label: "Female" },
+                    ]}
+                    value={values?.gender}
+                    label="Gender"
+                    onChange={(valueOption) => {
+                      setFieldValue("gender", valueOption);
+                    }}
+                    placeholder="Gender"
+                    errors={errors}
+                    touched={touched}
+                  />
                 </div>
                 <div className="col-lg-3">
                   <div className="form-group my-input">
