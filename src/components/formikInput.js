@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Field } from "formik";
 import FormikError from "./formikError";
 import moment from "moment";
+import { VisibilityOutlined, VisibilityOffOutlined } from "@material-ui/icons";
 const FormikInput = (props) => {
   const {
     label,
@@ -25,6 +26,7 @@ const FormikInput = (props) => {
       onFocus={() => setIsFocusForm(true)}
       onBlur={() => setIsFocusForm(false)}
     >
+      {/* label */}
       {label && (
         <label
           className={
@@ -40,6 +42,7 @@ const FormikInput = (props) => {
           {label}
         </label>
       )}
+      {/* leadIcon */}
       {leadicon && (
         <span
           className={
@@ -52,34 +55,40 @@ const FormikInput = (props) => {
               : "form-icon"
           }
         >
-          <i className={leadicon}></i>
+          {leadicon}
         </span>
       )}
+      {/* trailIcon */}
       {trailicon && (
         <span
           className={
-            isFocusForm
+            touched[name]
+              ? value
+                ? "form-icon form-trail-icon"
+                : "form-icon form-trail-icon form-trail-icon-error"
+              : isFocusForm
               ? "form-icon form-trail-icon active"
               : "form-icon form-trail-icon"
           }
         >
-          <i className={trailicon}></i>
+          {trailicon}
         </span>
       )}
-      {passwordicon && (
+      {/* Password Icon */}
+      {value && passwordicon && (
         <span
           className={
-            isFocusForm
+            touched[name]
+              ? value
+                ? "form-icon form-trail-icon"
+                : "form-icon form-trail-icon form-trail-icon-error"
+              : isFocusForm
               ? "form-icon form-trail-icon active"
               : "form-icon form-trail-icon"
           }
           onClick={() => setIsPassword(!isPasswordShow)}
         >
-          {isPasswordShow ? (
-            <i className={"fa fa-eye"}></i>
-          ) : (
-            <i className={"fa fa-eye-slash"}></i>
-          )}
+          {isPasswordShow ? <VisibilityOutlined /> : <VisibilityOffOutlined />}
         </span>
       )}
       <Field

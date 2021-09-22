@@ -3,10 +3,17 @@ import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import TopNavigation from "../components/TopNavigation/TopNavigation";
 import FormikInput from "../components/formikInput";
+import FormikInputNotReq from "./../components/formikInputNr";
+import {
+  MailOutlineOutlined,
+  PermIdentityOutlined,
+  LockOutlined,
+} from "@material-ui/icons";
 
 const initData = {
   name: "",
   email: "",
+  phone: "",
   password: "",
 };
 
@@ -53,7 +60,8 @@ const AllTypeForm = () => {
                       value={values?.name}
                       name="name"
                       type="text"
-                      leadicon="fa fa-user"
+                      leadicon={<PermIdentityOutlined />}
+                      trailicon={<PermIdentityOutlined />}
                       errors={errors}
                       touched={touched}
                     />
@@ -67,7 +75,21 @@ const AllTypeForm = () => {
                       name="email"
                       type="email"
                       className="form-control"
-                      leadicon="fa fa-envelope"
+                      leadicon={<MailOutlineOutlined />}
+                      errors={errors}
+                      touched={touched}
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-3">
+                  <div className="form-group my-input">
+                    <FormikInputNotReq
+                      label="Phone"
+                      value={values?.phone}
+                      name="phone"
+                      type="phone"
+                      className="form-control"
+                      leadicon={"fa fa-mobile"}
                       errors={errors}
                       touched={touched}
                     />
@@ -81,7 +103,7 @@ const AllTypeForm = () => {
                       name="password"
                       type="password"
                       className="form-control"
-                      leadicon="fa fa-lock"
+                      leadicon={<LockOutlined />}
                       passwordicon={"fa fa-eye"}
                       errors={errors}
                       touched={touched}
